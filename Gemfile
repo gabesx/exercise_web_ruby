@@ -5,4 +5,4 @@ source 'https://rubygems.org'
 gem 'capybara', '3.18.0'
 gem 'cucumber', '3.1.2'
 gem 'selenium-webdriver'
-
+gem 'rspec'
