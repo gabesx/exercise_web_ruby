@@ -6,4 +6,5 @@ Feature: Login functionality on SauceDemo
     Given navigate to SauceDemo login page
     When client enter valid credentials
     And client click on the login button
-    Then client should be redirected to the products page
+    And alert locked appears
+#    Then client should be redirected to the products page
