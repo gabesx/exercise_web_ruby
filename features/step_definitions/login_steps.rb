@@ -36,17 +36,17 @@ Then('all product items should be displayed on the products page') do
   end
 end
 
-Given('alert locked appears') do
+Given('alert {string} appears') do |alert_type|
   expect(page).to have_selector("svg.fa-times-circle.error_icon")
-  expect(page).to have_text("Epic sadface: Sorry, this user has been locked out.")
-end
 
-Given('alert wrong password appears') do
-  expect(page).to have_selector("svg.fa-times-circle.error_icon")
-  expect(page).to have_text("Epic sadface: Username and password do not match any user in this service")
-end
-
-Given('alert empty credential appears') do
-  expect(page).to have_selector("svg.fa-times-circle.error_icon")
-  expect(page).to have_text("Swag Labs\nEpic sadface: Username is required\nAccepted usernames are:\nstandard_user\nlocked_out_user\nproblem_user\nperformance_glitch_user\nerror_user\nvisual_user\nPassword for all users:\nsecret_sauce")
+  case alert_type
+  when 'locked'
+    expect(page).to have_text("Epic sadface: Sorry, this user has been locked out.")
+  when 'wrong password'
+    expect(page).to have_text("Epic sadface: Username and password do not match any user in this service")
+  when 'empty credential'
+    expect(page).to have_text("Epic sadface: Username is required")
+  else
+    raise "Alert type '#{alert_type}' is not recognized"
+  end
 end
