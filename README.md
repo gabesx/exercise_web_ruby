@@ -25,7 +25,11 @@ Clone the repository to your local machine:
 ### Try to run example feature
 
 ```bash
-cucumber --tags @login
+cucumber --tags @exercise
+```
+or
+```bash
+bundle exec cucumber --tags @exercise
 ```
 
 # Documentations
